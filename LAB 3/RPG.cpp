@@ -11,11 +11,11 @@ skills[0] = "slash";
 skills[1] = "parry"; 
 }
 RPG::RPG(string name, int health, int strength, int defense, string type){
-name = name; 
-health = health; 
-strength = strength; 
-defense = defense; 
-type = type; 
+this->name = name; 
+this->health = health; 
+this->strength = strength; 
+this->defense = defense; 
+this->type = type; 
 setSkills();
 }
 
