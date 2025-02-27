@@ -16,7 +16,7 @@ cout << "Character 1 Strength: " <<character1.getStrength() <<endl;
 cout << "Character 2 Name: " <<character2.getName() <<endl; 
 cout << "Character 2 Health: " <<character2.getHealth() <<endl; 
 cout << "Character 2 Defense: " <<character2.getDefense() <<endl; 
-cout << "Character 2 Strenght: " <<character2.getStrength() <<endl; 
+cout << "Character 2 Strength: " <<character2.getStrength() <<endl; 
 
 //TESTIG FOR THE IS ALIVE N UPDATE ON THE HEALTH 
 
