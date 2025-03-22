@@ -1,1 +1,49 @@
+#include "RPG.h"
+#include <iostream>
+using namespace std; 
 
+void gameloop(RPG* p1, RPG* p2);
+void DisplayStats(RPG p1, RPG p2);
+void DisplayEnd(RPG p1, RPG p2);
+
+
+
+int main() {
+    RPG p1 = RPG("Wiz", 70, 45, 15, "mage"); 
+    RPG p2 = RPG(); 
+    
+    gameloop(&p1, &p2); 
+    DisplayEnd(p1 , p2); 
+    return 0; 
+}
+void gameloop(RPG* p1, RPG* p2) {
+    while (p1->isAlive() && p2->isAlive()) {
+        cout << p1->getName() << "'s turn:\n";
+        p1->useSkill(p2);
+        DisplayStats(*p1, *p2);
+
+        if (!p2->isAlive()) break;
+
+        cout << p2->getName() << "'s turn:\n";
+        p2->useSkill(p1);
+        DisplayStats(*p1, *p2);
+    }
+}
+
+void DisplayStats(RPG p1, RPG p2) {
+    cout << "----- Game Stats -----\n";
+    cout << p1.getName() << " - Health: " << p1.getHealth() << endl;
+    cout << p2.getName() << " - Health: " << p2.getHealth() << endl;
+    cout << "----------------------\n";
+}
+
+void DisplayEnd(RPG p1, RPG p2) {
+    cout << "----- Game Over -----\n";
+    if (!p1.isAlive() && !p2.isAlive()) {
+        cout << "It's a draw!\n";
+    } else if (p1.isAlive()) {
+        cout << p1.getName() << " wins!\n";
+    } else {
+        cout << p2.getName() << " wins!\n";
+    }
+}
